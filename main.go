@@ -9,7 +9,7 @@ import (
 
 func main() {
 	// Open a new database connection
-	//db, err := sql.Open("mysql", "username:password@tcp(127.0.0.1:3306)/dbname")
+	//db, err := sql.Open("mysql", "username:password@tcp(IP address:Port)/dbname")
 	db, err := sql.Open("mysql", "root:IST888IST888@tcp(127.0.0.1:3306)/School")
 	if err != nil {
 		log.Fatal(err)
@@ -18,7 +18,7 @@ func main() {
 
 	// CREATE operation
 	_, err = db.Exec("INSERT INTO tblStudents(fldStudentId, fldFName, fldLName, fldGPA, fldCurrentCredits, fldTotalCredits) "+
-		"VALUES (?, ?, ?, ?, ?, ?)", 1000, "John", "Doe", 3.0, 12, 100)
+		"VALUES (?, ?, ?, ?, ?, ?)", 1001, "Joe", "Oakes", 4.0, 12, 100)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -51,8 +51,10 @@ func main() {
 	}
 
 	// DELETE operation
-	_, err = db.Exec("DELETE FROM tblStudents WHERE fldStudentId = ?", 1000)
-	if err != nil {
-		log.Fatal(err)
-	}
+	/*
+		_, err = db.Exec("DELETE FROM tblStudents WHERE fldStudentId = ?", 1000)
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
 }
